@@ -133,23 +133,6 @@ body {
   overflow: hidden;
 }
 
-.results-carousel .item {
-  margin: 0px auto;
-  overflow: hidden;
-  border: 1px solid #bbb;
-  border-radius: 10px;
-  padding: 0;
-  font-size: 0;
-  /* height: 300px; */
-  width: 1000px;
-}
-
-.results-carousel video {
-  margin: 10;
-  /* max-height: 300px; */
-  /* max-width: 800px; */
-}
-
 
 .interpolation-panel {
   background: #f5f5f5;

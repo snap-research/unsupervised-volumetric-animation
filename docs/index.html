@@ -119,14 +119,14 @@
 	      </center>
 	    </div>
 
-
+            <br/>
 	    <p class='lead'>
 	      We propose a novel approach for unsupervised 3D animation of non-rigid deformable objects. Our method learns the 3D structure and dynamics of objects solely from single-view RGB videos, and can decompose them into semantically meaningful parts that can be tracked and animated. Using a 3D autodecoder framework, paired with a keypoint estimator via a differentiable PnP algorithm, our model learns the underlying object geometry and parts decomposition in an entirely unsupervised manner. This allows it to perform 3D segmentation, 3D keypoint estimation, novel view synthesis, and animation. We primarily evaluate the framework on two video datasets: VoxCeleb 256<sup>2</sup> and TEDXPeople 256<sup>2</sup>. In addition, on the Cats 256<sup>2</sup> image dataset, we show it even learns compelling 3D geometry from still images. Finally, we show our model can obtain animatable 3D objects from a single or few images.
 	    </p>
 	  </div>
 	  </div>
 
-
+        
         
         <div class="container pt-5">
            <div class="content">
@@ -134,59 +134,116 @@
                       <h2 class="title is-3">Animation Results:</h2>
 		      <p class="lead"> Here we show animation results rendered under novel views within the [-15°,15°] range on <b>VoxCeleb</b> and <b>Tedx</b>. Our method uses a single image and a driving sequence to synthesize animations. Additionally, we show depth, normals and parts (LBS weights) predicted by our method in an unsupervised way. Note, that our method successfully renders wide range pose changes and diverse object shapes. </p>
 	    </div>
-
-            <div class="carousel results-carousel">
+            <br/>
+            <div class="row">
+            <div class="carousel col-md-6" style="overflow: hidden">
                 <div class="item" >
-		        <div>	
-			<video poster="" autoplay muted loop playsinline controls width="49%" height="100%">
-		              <source src="./video_sequences/animations/vox-example-1.mp4" type="video/mp4">
-			</video>
-			
-			
-			<video poster="" autoplay controls muted loop playsinline width="49%" height="100%">
-			       <source src="./video_sequences/animations/vox-example-2.mp4" type="video/mp4">
-			</video>
-                        </div>
-			
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example1.mp4" type="video/mp4">
+			</video>			
                 </div>
-                <div class="item">
-                        <div>
-			<video poster="" autoplay muted loop playsinline controls width="49%" height="100%">
-		              <source src="./video_sequences/animations/vox-example-3.mp4" type="video/mp4">
-			</video>
-			
-			
-			<video poster="" autoplay controls muted loop playsinline width="49%" height="100%">
-			       <source src="./video_sequences/animations/vox-example-1.mp4" type="video/mp4">
-			</video>
-                        </div>
-	        </div>
-	    </div>
-
-
-            <div class="carousel results-carousel">
-                <div class="item">
-                      <div>
-		      <video poster="" autoplay muted loop playsinline controls width="49%" height="100%">
-			<source src="./video_sequences/animations/tedx-example-1.mp4" type="video/mp4">
-		      </video>
-		      <video poster="" autoplay controls muted loop playsinline width="49%" height="100%">
-			<source src="./video_sequences/animations/tedx-example-2.mp4" type="video/mp4">
-		      </video>
-                      </div>
-		</div>
-                <div class="item">
-                      <div>
-		      <video poster="" autoplay muted loop playsinline controls width="49%" height="100%">
-			<source src="./video_sequences/animations/tedx-example-3.mp4" type="video/mp4">
-		      </video>
-		      <video poster="" autoplay controls muted loop playsinline width="49%" height="100%">
-			<source src="./video_sequences/animations/tedx-example-1.mp4" type="video/mp4">
-		      </video>
-                      </div>
-		</div>
-
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example3.mp4" type="video/mp4">
+			</video>			
                 </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example2.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example4.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example5.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example6.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example7.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example8.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example9.mp4" type="video/mp4">
+			</video>			
+                </div>
+            </div>
+
+
+            <div class="carousel results-carousel col-md-6" style="overflow: hidden">
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example2.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example3.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example4.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example5.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example1.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example6.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example7.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example8.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example9.mp4" type="video/mp4">
+			</video>			
+                </div>
+             </div>
+
+           </div>
+
+                
 	  </div>
 	  </div>
 
@@ -200,7 +257,7 @@
 		      <p class="lead"> Here we compare our method with two state-of-the-art animation 2D methods LIA and MRAA. We report typical examples of animations generated by each of the methods. Since our method uses a 3D representation for animation it better preserves face proportions and head poses. MRAA significantly alters the shape and does not faithfully convey expressions. LIA slightly changes the proportions, while smoothing the image and changing its color. </p>             
               
   	    </div>
-
+            <br/>
             <div class="row">
                 <div class="col-md-6">
 		      <video poster="" autoplay muted loop playsinline controls width="100%" height="100%">
@@ -244,7 +301,7 @@
                       <h2 class="title is-3">Novel view synthesis:</h2>
 		      <p class="lead"> Here we show a reconstruction made from a single image and rotate it along the y-axis, showing a wide range of novel views. We also show the corresponding depth, normals and LBS weights. </p>             
   	    </div>
-
+            <br/>
 	    <div class="row">
 
             <div class="col-md-6">
@@ -272,7 +329,7 @@
 		      <p class="lead"> Here the model is trained on <strong>images only</strong>. Despite this, due to the 3D inductive bias provided by PnP, our method discovers meaningful geometry even in this challenging case. </p>             
   	    </div>
 
-
+            <br/>
 
             <div class="row">
 			<div class="col-md-6" style="display: block; margin-left: auto; margin-right: auto;">
@@ -299,37 +356,32 @@
                  <h2 class="title is-3">Comparison of direct pose prediction and PnP-based:</h2>
 		 <p class="lead"> We argue that the proposed framework involving differentiable PnP favors discovery of correct 3D geometry. To show it we give qualitative samples of the model using PnP and the one predicting the pose of each part directly, using a neural network. In this experiment we use the result of <i>G-phase</i>, where only a single part is learned. The <i>Direct</i> method learned flat geometry, while our PnP-based method produced plausible geometry with small details, including hair and wrinkles.</p> 
   	    </div>
-
-            <div class="carousel results-carousel">
-                <div class="item">
-                      <center>
-		      <video poster="" autoplay muted loop playsinline controls width="60%" height="100%">
+            <br/>
+            <div class="row">        
+                <div class="col-md-6">
+		      <video poster="" autoplay muted loop playsinline controls>
 			<source src="video_sequences/pnp-vs-direct/example-1.mp4" type="video/mp4">
 		      </video>
-                      </center>
 		</div>
-                <div class="item">
-                      <center>
-		      <video poster="" autoplay muted loop playsinline controls width="60%" height="100%">
+                <div class="col-md-6">
+		      <video poster="" autoplay muted loop playsinline controls>
+			<source src="video_sequences/pnp-vs-direct/example-2.mp4" type="video/mp4">
+		      </video>
+		</div>
+            </div>
+            <div class="row">         
+                <div class="col-md-6">
+		      <video poster="" autoplay muted loop playsinline controls>
 			<source src="video_sequences/pnp-vs-direct/example-3.mp4" type="video/mp4">
 		      </video>
-                      </center>
 		</div>
-                <div class="item">
-                      <center>
-		      <video poster="" autoplay muted loop playsinline controls width="60%" height="100%">
-			<source src="video_sequences/pnp-vs-direct/example-3.mp4" type="video/mp4">
-		      </video>
-                      </center>
-		</div>
-                <div class="item">
-                      <center>
-		      <video poster="" autoplay muted loop playsinline controls width="60%" height="100%">
+                <div class="col-md-6">
+		      <video poster="" autoplay muted loop playsinline controls>
 			<source src="video_sequences/pnp-vs-direct/example-4.mp4" type="video/mp4">
 		      </video>
-                      </center>
 		</div>
 	   </div>
+           </div>
 
 	 </div>
          </div>
@@ -343,7 +395,7 @@
 		      <p class="lead"> Our framework learns a canonical latent space, allowing us to synthesize new unseen identities. Here we sample random identity from the latent space (i.e. use standard normal noise as embedding), and animate it using the driving from the test set. Note, that our framework is auto-decoder-based, hence, the quality of the texture is inferior to GAN-based methods. Recall that our framework is non-adversarial and is trained using reconstruction losses only. Despite this artifact the method is able to generate reasonable geometry even for random samples.</p>
              
   	    </div>
-
+            <br/>
 
 
             <div class="row">
