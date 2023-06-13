@@ -1,0 +1,92 @@
+epochs: 100
+batch_size: 20
+num_workers: 12
+num_channels: 3
+video_resolution: [256, 256]
+checkpoint_frequency: 10
+
+dataset_params:
+  visualization_videos: 4
+  root_dir: '../datasets/tedx-join'
+  max_frames: null
+  max_videos: null
+  repeat: 10
+  visualization_frames: 64
+
+model_params:
+  n_parts: 1
+  num_channels: 3
+  points_per_part: 125
+
+  near: 9.5
+  far: 11.5
+  fov: 0.175
+
+  random_points3d_init: False
+
+  pnp_pose:
+    scale_factor: 0.25
+    weighted: False
+
+  canonical_generator:
+    embedding_size: 64
+    n_samples: 48
+    perturb_z: True
+    voxel_resolution: 64
+    noise_std: 0.5
+
+optimizer_params:
+  lr: 5.0e-4
+  betas: [0.5, 0.999]
+  epoch_milestones: [60, 90]
+  grad_clip: 0.1
+  gamma: 0.1
+
+loss_params:
+
+  perceptual_pyramide:
+    scales: [1, 0.5, 0.25]
+    weights: [10, 10, 10, 10, 10]
+
+  equivariance:
+    weight: 10
+    sigma_affine: 0.1
+
+  projection:
+    weight: 10
+
+  mraa_mask:
+    weight: 10
+    decay: 0.8
+    checkpoint_path: '../articulated-animation/log/tedx256 24_10_22_00.50.08/00000099-cpk-reconstruction.pth'
+    rebalanced: False
+    region_predictor_params:
+        multipart: False
+        num_regions: 10
+        scale_factor: 0.25
+        threshold: 0.0001
+
+  pull:
+    weight: 10
+    threshold: 0.1
+
+inversion_params:
+  lr_first: 1.0e-2
+  lr_second: 1.0e-3
+  steps_first: 3000
+  steps_second: 500
+  preserve_geometry_weight: 100
+  bs: 1
+  sigma_first: 0
+  sigma_second: 0.15
+  vflip_first: False
+  vflip_second: False
+  l1_first: 0
+  l1_second: 1000
+  use_lr_schedule_first: True
+  use_lr_schedule_second: False
+
+visualization_params:
+  video_frequency: 20
+  camera_angle_range: [-0.5, 0.5]
+  camera_angle_steps: 64

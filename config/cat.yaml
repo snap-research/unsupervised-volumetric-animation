@@ -1,0 +1,79 @@
+epochs: 100
+batch_size: 4
+num_workers: 12
+num_channels: 3
+video_resolution: [256, 256]
+checkpoint_frequency: 10
+
+dataset_params:
+  visualization_videos: 4
+  root_dir: '../datasets/cats-png'
+  max_frames: null
+  max_videos: null
+  repeat: 10
+  visualization_frames: 64
+
+model_params:
+  n_parts: 1
+  num_channels: 3
+  points_per_part: 125
+
+  near: 9.5
+  far: 11.5
+  fov: 0.175
+
+  random_points3d_init: False
+
+  pnp_pose:
+    scale_factor: 0.25
+    weighted: False
+
+  canonical_generator:
+    embedding_size: 64
+    n_samples: 128
+    perturb_z: True
+    voxel_resolution: 64
+    noise_std: 0.5
+    bound_inc: 1.2
+    bg_plate_size: 0
+
+optimizer_params:
+  lr: 5.0e-4
+  betas: [0.5, 0.999]
+  epoch_milestones: [60, 90]
+  grad_clip: 0.1
+  gamma: 0.1
+
+loss_params:
+
+  perceptual_pyramide:
+    scales: [1, 0.5, 0.25]
+    weights: [10, 10, 10, 10, 10]
+
+  equivariance:
+    weight: 10
+    sigma_affine: 0.1
+
+  projection:
+    weight: 10
+
+  mraa_mask:
+    weight: 0
+
+  pull:
+    weight: 0
+    threshold: 0.1
+
+
+inversion_params:
+  lr_first: 1.0e-2
+  lr_second: 1.0e-3
+  steps_first: 3000
+  steps_second: 3000
+  preserve_geometry_weight: 100
+  num_images: 1
+
+visualization_params:
+  video_frequency: 20
+  camera_angle_range: [-0.5, 0.5]
+  camera_angle_steps: 64
