@@ -16,9 +16,7 @@ pip install -r requirements.txt
 
 ### YAML configs
 
-There are several configuration files one for each `dataset` in the `config` folder named as ```config/dataset_name.yaml```. See ```config/dataset.yaml``` to get the description of each parameter.
-
-See description of the parameters in the ```config/vox256.yaml```. We adjust the the configuration to run on 8 A100 GPU.
+There are several configuration files one for each `dataset` in the `config` folder named as ```config/dataset_name_stage.yaml```. We adjust the the configuration to run on 8 A100 GPU.
 
 ### Pre-trained checkpoints
 Checkpoints can be found under this [link]().
@@ -29,9 +27,6 @@ Inversion, to run inversion on your own image use:
 python inversion.py  --config config/dataset_name.yaml --driving_video path/to/driving --source_image path/to/source --checkpoint tb-logs/vox_second_stage/{time}/checkpoints/last.cpkt
 ```
 The result can be seen with tensorboard.
-
-### Colab Demo
-We prepared a demo runnable in google-colab, see: ```demo.ipynb```.
 
 
 ### Training
