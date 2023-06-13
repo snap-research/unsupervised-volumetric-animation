@@ -21,7 +21,7 @@ There are several configuration files one for each `dataset` in the `config` fol
 ### Pre-trained checkpoints
 Checkpoints can be found under this [link]().
 
-### Inverion
+### Invertion
 Inversion, to run inversion on your own image use:
 ```bash
 python inversion.py  --config config/dataset_name.yaml --driving_video path/to/driving --source_image path/to/source --checkpoint tb-logs/vox_second_stage/{time}/checkpoints/last.cpkt
@@ -32,6 +32,8 @@ The result can be seen with tensorboard.
 ### Training
 
 To train a model run:
+Download the mraa checkpoints and place them into ```./```.
+
 ```bash
 python train.py --config config/vox_first_stage.yaml
 python train.py --config config/vox_second_stage.yaml --checkpoint tb-logs/vox_first_stage/{time}/checkpoints/last.cpkt
