@@ -4,8 +4,11 @@ This repository contains the source code for the CVPR'2023 paper [Unsupervised V
 For more qualitiative examples visit our [project page](https://snap-research.github.io/unsupervised-volumetric-animation/).
 Here is an example of several images produced by our method. In the first column the driving video is shown. For the remaining columns the top image is animated by using motions extracted from the driving.
 
-![Screenshot](assets/sample.gif)
-![Screenshot](assets/rotation.gif)
+
+<p float="left">
+  <img src="/assets/sample.gif" width="500" />
+  <img src="/assets/rotation.gif" width="500" /> 
+</p>
 
 ### Installation
 
