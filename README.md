@@ -5,10 +5,10 @@ For more qualitiative examples visit our [project page](https://snap-research.gi
 Here is an example of several images produced by our method. In the first column the driving video is shown. For the remaining columns the top image is animated by using motions extracted from the driving.
 
 
-<p float="left">
-  <img src="/assets/sample.gif" width="500" />
-  <img src="/assets/rotation.gif" width="500" /> 
-</p>
+Sample animation           |  Rotation visualization
+:-------------------------:|:-------------------------:
+![](./assets/sample.gif)  |  ![](./assets/rotation.gif)
+
 
 ### Installation
 
