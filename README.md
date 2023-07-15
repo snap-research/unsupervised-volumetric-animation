@@ -2,11 +2,14 @@
 
 This repository contains the source code for the CVPR'2023 paper [Unsupervised Volumetric Animation](https://arxiv.org/abs/2301.11326).
 For more qualitiative examples visit our [project page](https://snap-research.github.io/unsupervised-volumetric-animation/).
+
 Here is an example of several images produced by our method. 
 On the left is sample visualization: In the first column the driving video is shown. For the remaining columns the top image is animated by using motions extracted from the driving.
 On the right is rotation visualization: We show source image as well as rotated rgb, depth, normals and segments. 
-![Screenshot](assets/sample.gif)
-![Screenshot](assets/rotation.gif)
+
+Sample animation           |  Rotation visualization
+:-------------------------:|:-------------------------:
+![](./assets/sample.gif)  |  ![](./assets/rotation.gif)
 
 ### Installation
 
