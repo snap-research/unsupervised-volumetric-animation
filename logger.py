@@ -69,7 +69,7 @@ class VisualizationCallback(Callback):
     def make_frame_with_points(self, pose, frame):
         """
         Create points visualization, for each part it creates a separate image.
-        On this image all points corresponding to this part is shown.
+        On this image all points corresponding to this part are shown.
         Circles is used for predicted 2d points, and squares is used for 2d projections of 3d points.
         Color of border around the frame correspond to the point color.
 

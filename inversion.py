@@ -276,7 +276,7 @@ def read_video(name, image_shape):
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--config", required=True, help="path to config")
-    parser.add_argument("--tb_log_path", default='tb_logs', help="path to for tensorboard logs")
+    parser.add_argument("--tb_log_path", default='tb_logs', help="path to tensorboard logs")
     parser.add_argument("--checkpoint", required=True, help="path to checkpoint to restore")
     parser.add_argument('--source_images', nargs='+', required=True, help='path to source images')
     parser.add_argument("--driving_video", default=None, help="optional driving video for transfer testing")

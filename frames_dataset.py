@@ -39,7 +39,7 @@ class FramesDataset(Dataset):
               001.png
               002.png
               ...
-    Note that regular soring is used to determine order of frames, so pad the names with zeros.
+    Note that regular sorting is used to determine order of frames, so pad the names with zeros.
     """
 
     def __init__(self,

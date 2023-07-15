@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link href="resources/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./resources/bulma.min.css">
+        <link rel="stylesheet" href="./resources/bulma-carousel.min.css">
+        <link rel="stylesheet" href="./resources/bulma-slider.min.css">
+        <link rel="stylesheet" href="./resources/fontawesome.all.min.css">
+        <link rel="stylesheet" href="./resources/index.css">
+ 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script defer src="./resources/fontawesome.all.min.js"></script>
+        <script src="./resources/bulma-carousel.min.js"></script>
+        <script src="./resources/bulma-slider.min.js"></script>
+        <script src="./resources/index.js"></script>
+
+	<title>Unsupervised Volumetric Animation</title>
+</head>
+<body>
+
+	<section class="jumbotron text-center">
+            <h1 class="publication-title">Unsupervised Volumetric Animation</h1>
+            <br/>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://aliaksandrsiarohin.github.io/aliaksandr-siarohin-website/">Aliaksandr Siarohin</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.willimenapace.com/">Willi Menapace</a><sup>2*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://universome.github.io/">Ivan Skorokhodov</a><sup>3*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://kyleolsz.github.io/">Kyle Olszewski</a><sup>1</sup>,
+              </span> 
+              <span class="author-block">
+                <a href="http://hsinyinglee.com/">Hsin-Ying Lee</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://alanspike.github.io/">Jian Ren</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://mlchai.com/">Menglei Chai</a><sup>1</sup>,</span> 
+             <span class="author-block">
+                <a href="http://www.stulyakov.com/">Sergey Tulyakov</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Snap Inc.</span>
+              <span class="author-block"><sup>2</sup>University of Trento</span>
+              <span class="author-block"><sup>3</sup>KAUST</span>
+            </div>
+            <div>
+              <span class="author-block">*Work done while interning at Snap.</span>
+            </div>
+
+	     <div class="column has-text-centered">
+	      <div class="publication-links">
+		<!-- PDF Link. -->
+		<span class="link-block">
+		  <a href="./paper.pdf" class="external-link button is-normal is-rounded is-dark">
+		    <span class="icon">
+		      <i class="fas fa-file-pdf"></i>
+		    </span>
+		    <span>Paper</span>
+		  </a>
+		</span>
+		<span class="link-block">
+		  <a href="http://arxiv.org/abs/2301.11326" class="external-link button is-normal is-rounded is-dark">
+		    <span class="icon">
+		      <i class="ai ai-arxiv"></i>
+		    </span>
+		    <span>arXiv</span>
+		  </a>
+		</span>
+
+    	        <!-- Code Link. -->
+		<span class="link-block">
+		  <a href="https://github.com/snap-research/unsupervised-volumetric-animation"
+		    class="external-link button is-normal is-rounded is-dark">
+		    <span class="icon">
+		      <i class="fab fa-github"></i>
+		    </span>
+		    <span>Code</span>
+		  </a>
+		</span>
+
+		<!-- Dataset Link. -->
+		<span class="link-block">
+		  <a href="#bibtex" class="external-link button is-normal is-rounded is-dark">
+		    <span class="icon">
+		      <i class="fa fa-quote-left"></i>
+		    </span>
+		    <span>Cite</span>
+		  </a>
+	      </div>
+
+ 
+	</section>
+
+        <!-- Abstract. -->
+        <div class="container pt-5">
+           <div class="content has-text-justified">
+	    <div class="teaser">
+              <center>
+                      <h2 class="title is-3">Abstract</h2>
+	
+		      <div class="col-md-10">
+			  <img src="./framework.png">
+		      </div>
+	      </center>
+	    </div>
+
+            <br/>
+	    <p class='lead'>
+	      We propose a novel approach for unsupervised 3D animation of non-rigid deformable objects. Our method learns the 3D structure and dynamics of objects solely from single-view RGB videos, and can decompose them into semantically meaningful parts that can be tracked and animated. Using a 3D autodecoder framework, paired with a keypoint estimator via a differentiable PnP algorithm, our model learns the underlying object geometry and parts decomposition in an entirely unsupervised manner. This allows it to perform 3D segmentation, 3D keypoint estimation, novel view synthesis, and animation. We primarily evaluate the framework on two video datasets: VoxCeleb 256<sup>2</sup> and TEDXPeople 256<sup>2</sup>. In addition, on the Cats 256<sup>2</sup> image dataset, we show it even learns compelling 3D geometry from still images. Finally, we show our model can obtain animatable 3D objects from a single or few images.
+	    </p>
+	  </div>
+	  </div>
+
+        
+        
+        <div class="container pt-5">
+           <div class="content">
+	    <div>
+                      <h2 class="title is-3">Animation Results:</h2>
+		      <p class="lead"> Here we show animation results rendered under novel views within the [-15°,15°] range on <b>VoxCeleb</b> and <b>Tedx</b>. Our method uses a single image and a driving sequence to synthesize animations. Additionally, we show depth, normals and parts (LBS weights) predicted by our method in an unsupervised way. Note, that our method successfully renders wide range pose changes and diverse object shapes. </p>
+	    </div>
+            <br/>
+            <div class="row">
+            <div class="carousel col-md-6" style="overflow: hidden">
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example1.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example3.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example2.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example4.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example5.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example6.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example7.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example8.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/vox-example9.mp4" type="video/mp4">
+			</video>			
+                </div>
+            </div>
+
+
+            <div class="carousel results-carousel col-md-6" style="overflow: hidden">
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example2.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example3.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example4.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example5.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example1.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example6.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example7.mp4" type="video/mp4">
+			</video>			
+                </div>
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example8.mp4" type="video/mp4">
+			</video>			
+                </div>
+
+                <div class="item" >
+			<video poster="" autoplay muted loop playsinline controls>
+		              <source src="./video_sequences/animations/tedx-example9.mp4" type="video/mp4">
+			</video>			
+                </div>
+             </div>
+
+           </div>
+
+                
+	  </div>
+	  </div>
+
+
+
+        <div class="container pt-5">
+           <div class="content">
+	    <div>
+              
+                      <h2 class="title is-3">Comparison with SOTA methods:</h2>
+		      <p class="lead"> Here we compare our method with two state-of-the-art animation 2D methods LIA and MRAA. We report typical examples of animations generated by each of the methods. Since our method uses a 3D representation for animation it better preserves face proportions and head poses. MRAA significantly alters the shape and does not faithfully convey expressions. LIA slightly changes the proportions, while smoothing the image and changing its color. </p>             
+              
+  	    </div>
+            <br/>
+            <div class="row">
+                <div class="col-md-6">
+		      <video poster="" autoplay muted loop playsinline controls width="100%" height="100%">
+			<source src="video_sequences/comparisons/vox-example-1.mp4" type="video/mp4">
+		      </video>
+		</div>
+		<div class="col-md-6">
+                      <center>
+		      <video poster="" autoplay controls muted loop playsinline width="100%" height="100%">
+			<source src="video_sequences/comparisons/vox-example-2.mp4" type="video/mp4">
+		      </video>
+                      </center>
+		</div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                      <center>
+		      <video poster="" autoplay muted loop playsinline controls width="100%" height="100%">
+			<source src="video_sequences/comparisons/tedx-example-1.mp4" type="video/mp4">
+		      </video>
+                      </center>
+		</div>
+		<div class="col-md-6">
+                      <center>
+		      <video poster="" autoplay controls muted loop playsinline width="100%" height="100%">
+			<source src="video_sequences/comparisons/tedx-example-2.mp4" type="video/mp4">
+		      </video>
+                      </center>
+		</div>
+            </div>
+
+	 </div>
+         </div>
+
+        <div class="container pt-5">
+           <div class="content">
+	    <div>
+              
+                      <h2 class="title is-3">Novel view synthesis:</h2>
+		      <p class="lead"> Here we show a reconstruction made from a single image and rotate it along the y-axis, showing a wide range of novel views. We also show the corresponding depth, normals and LBS weights. </p>             
+  	    </div>
+            <br/>
+	    <div class="row">
+
+            <div class="col-md-6">
+		    <video poster="" autoplay muted loop playsinline controls width="100%" height="100%">
+		       <source src="video_sequences/novel-view-synthesis/vox-example.mp4" type="video/mp4">
+		    </video>
+		
+            </div>
+            <div class="col-md-6">
+		    <video poster="" autoplay muted loop playsinline controls width="100%" height="100%">
+		       <source src="video_sequences/novel-view-synthesis/tedx-example.mp4" type="video/mp4">
+		    </video>
+		
+            </div>
+
+	 </div>
+         </div>
+
+
+        <div class="container pt-5">
+        <div class="content">
+	    <div>
+              
+                      <h2 class="title is-3">Novel view synthesis on image dataset:</h2>
+		      <p class="lead"> Here the model is trained on <strong>images only</strong>. Despite this, due to the 3D inductive bias provided by PnP, our method discovers meaningful geometry even in this challenging case. </p>             
+  	    </div>
+
+            <br/>
+
+            <div class="row">
+			<div class="col-md-6" style="display: block; margin-left: auto; margin-right: auto;">
+				<video class="video-fluid w-100" controls autoplay loop muted>
+					<source src="video_sequences/cats/example-1.mp4" type="video/mp4" />
+				</video>
+			</div>
+			<div class="col-md-6" style="display: block; margin-left: auto; margin-right: auto;">
+				<video class="video-fluid w-100" controls autoplay loop muted>
+					<source src="video_sequences/cats/example-2.mp4" type="video/mp4" />
+				</video>
+			</div>
+
+            </div>
+
+	 </div>
+         </div>
+
+
+
+        <div class="container pt-5">
+        <div class="content">
+	    <div>
+                 <h2 class="title is-3">Comparison of direct pose prediction and PnP-based:</h2>
+		 <p class="lead"> We argue that the proposed framework involving differentiable PnP favors discovery of correct 3D geometry. To show it we give qualitative samples of the model using PnP and the one predicting the pose of each part directly, using a neural network. In this experiment we use the result of <i>G-phase</i>, where only a single part is learned. The <i>Direct</i> method learned flat geometry, while our PnP-based method produced plausible geometry with small details, including hair and wrinkles.</p> 
+  	    </div>
+            <br/>
+            <div class="row">        
+                <div class="col-md-6">
+		      <video poster="" autoplay muted loop playsinline controls>
+			<source src="video_sequences/pnp-vs-direct/example-1.mp4" type="video/mp4">
+		      </video>
+		</div>
+                <div class="col-md-6">
+		      <video poster="" autoplay muted loop playsinline controls>
+			<source src="video_sequences/pnp-vs-direct/example-2.mp4" type="video/mp4">
+		      </video>
+		</div>
+            </div>
+            <div class="row">         
+                <div class="col-md-6">
+		      <video poster="" autoplay muted loop playsinline controls>
+			<source src="video_sequences/pnp-vs-direct/example-3.mp4" type="video/mp4">
+		      </video>
+		</div>
+                <div class="col-md-6">
+		      <video poster="" autoplay muted loop playsinline controls>
+			<source src="video_sequences/pnp-vs-direct/example-4.mp4" type="video/mp4">
+		      </video>
+		</div>
+	   </div>
+           </div>
+
+	 </div>
+         </div>
+
+
+        <div class="container pt-5">
+        <div class="content">
+	    <div>
+              
+                      <h2 class="title is-3">Random generation:</h2>
+		      <p class="lead"> Our framework learns a canonical latent space, allowing us to synthesize new unseen identities. Here we sample random identity from the latent space (i.e. use standard normal noise as embedding), and animate it using the driving from the test set. Note, that our framework is auto-decoder-based, hence, the quality of the texture is inferior to GAN-based methods. Recall that our framework is non-adversarial and is trained using reconstruction losses only. Despite this artifact the method is able to generate reasonable geometry even for random samples.</p>
+             
+  	    </div>
+            <br/>
+
+
+            <div class="row">
+			<div class="col-md-6" style="display: block; margin-left: auto; margin-right: auto;">
+			       <video class="video-fluid w-100" controls autoplay loop muted>
+					<source src="video_sequences/random/vox-example-1.mp4" type="video/mp4" />
+			       </video>
+			</div>
+			<div class="col-md-6" style="display: block; margin-left: auto; margin-right: auto;">
+			       <video class="video-fluid w-100" controls autoplay loop muted>
+					<source src="video_sequences/random/tedx-example-1.mp4" type="video/mp4" />
+			       </video>
+			</div>
+
+            </div>
+
+            <div class="row">
+			<div class="col-md-6" style="display: block; margin-left: auto; margin-right: auto;">
+			       <video class="video-fluid w-100" controls autoplay loop muted>
+					<source src="video_sequences/random/vox-example-2.mp4" type="video/mp4" />
+			       </video>
+			</div>
+			<div class="col-md-6" style="display: block; margin-left: auto; margin-right: auto;">
+			       <video class="video-fluid w-100" controls autoplay loop muted>
+					<source src="video_sequences/random/tedx-example-2.mp4" type="video/mp4" />
+			       </video>
+			</div>
+
+            </div>
+
+            <div class="row">
+			<div class="col-md-6" style="display: block; margin-left: auto; margin-right: auto;">
+			       <video class="video-fluid w-100" controls autoplay loop muted>
+					<source src="video_sequences/random/vox-example-3.mp4" type="video/mp4" />
+			       </video>
+			</div>
+			<div class="col-md-6" style="display: block; margin-left: auto; margin-right: auto;">
+			       <video class="video-fluid w-100" controls autoplay loop muted>
+					<source src="video_sequences/random/tedx-example-3.mp4" type="video/mp4" />
+			       </video>
+			</div>
+
+            </div>
+
+            <div class="row">
+			<div class="col-md-6" style="display: block; margin-left: auto; margin-right: auto;">
+			       <video class="video-fluid w-100" controls autoplay loop muted>
+					<source src="video_sequences/random/vox-example-4.mp4" type="video/mp4" />
+			       </video>
+			</div>
+			<div class="col-md-6" style="display: block; margin-left: auto; margin-right: auto;">
+			       <video class="video-fluid w-100" controls autoplay loop muted>
+					<source src="video_sequences/random/tedx-example-4.mp4" type="video/mp4" />
+			       </video>
+			</div>
+
+            </div>
+
+
+
+	 </div>
+         </div>       
+    <section class="section" id="bibtex">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <div class="cit_cont">
+        <pre class="cit">@article{siarohin2023unsupervised,
+    author  = {Siarohin, Aliaksandr and Menapace, Willi and Skorokhodov, Ivan and Olszewski, Kyle and Lee, Hsin-Ying and Ren, Jian and  Chai, Menglei and Tulyakov, Sergey},
+    title   = {Unsupervised Volumetric Animation},
+    journal = {arXiv preprint arXiv:2301.11326},
+    year    = {2023},
+}</pre>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
