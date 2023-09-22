@@ -23,7 +23,7 @@ pip install -r requirements.txt
 There are several configuration files one for each `dataset` in the `config` folder named as ```config/dataset_name_stage.yaml```. We adjust the configuration to run on 8 A100 GPU.
 
 ### Pre-trained checkpoints
-Checkpoints can be found under this [link]().
+Checkpoints can be found under this [link](https://drive.google.com/drive/folders/1RKbzSRRQvJ0bsEMDq1ed9Fk3x8Pw-clE?usp=sharing).
 
 ### Inversion
 Inversion, to run inversion on your own image use:
